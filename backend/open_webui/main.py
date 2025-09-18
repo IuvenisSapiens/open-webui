@@ -581,7 +581,9 @@ async def lifespan(app: FastAPI):
             ),
             None,
         )
-
+    # 应用启动后自动打开网址
+    import webbrowser
+    webbrowser.open('http://127.0.0.1:8080')
     yield
 
     if hasattr(app.state, "redis_task_command_listener"):
